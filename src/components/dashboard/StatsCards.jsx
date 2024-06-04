@@ -1,47 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import dash1 from "../../../public/dash1.svg";
+import dash2 from "../../../public/dash2.svg";
+import dash3 from "../../../public/dash3.svg";
+import dash4 from "../../../public/dash4.svg";
 
 const cardsData = [
   {
-    color: "red",
-    // icon: <TextsmsRoundedIcon />,
+    color: "bg-purple-100",
+    image: dash1,
     text: "Profile Views",
-    qty: 2300,
+    qty: "2,300",
     link: "/dashboard",
   },
   {
-    color: "blue",
-    // icon: <ListAltIcon />,
+    color: "bg-red-100",
+    image: dash2,
     text: "Applied Listing",
     qty: 44,
     link: "/listing",
   },
   {
-    color: "green",
-    // icon: <CampaignIcon />,
+    color: "bg-green-100",
+    image: dash3,
     text: "Saved Listing",
     qty: 17,
     link: "/campaigns",
   },
   {
-    color: "yellow",
-    // icon: <ExploreIcon />,
+    color: "bg-blue-100",
+    image: dash4,
     text: "Featured Listing",
     qty: 5295,
     link: "/explore",
   },
 ];
-
 const StatsCards = () => {
   return (
-    <div className=" my-10 flex gap-5 items-center justify-between">
+    <div className=" mb-10 mt-8 flex gap-5 items-center justify-between">
       {cardsData.map((itm, idx) => {
         return (
           <div
             key={idx}
             className="border p-4 rounded-xl flex items-center flex-1 gap-3"
           >
-            <div className="icon border rounded-lg p-3">icon</div>
+            <div className={`icon   rounded-xl p-4 ${itm.color}`}>
+              <img
+                src={itm.image}
+                alt={`${itm.text} icon`}
+                className="w-10 h-10"
+              />
+            </div>
             <div className="conts   ">
               <div className="p">{itm.text}</div>
               <div className="qty text-2xl font-bold">{itm.qty}</div>

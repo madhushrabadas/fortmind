@@ -37,7 +37,10 @@ export default function CustomBreadcrumbs() {
 
   return (
     <Stack spacing={2}>
-      <Breadcrumbs separator="›" aria-label="breadcrumb">
+      <Breadcrumbs
+        separator={<div className="text-2xl">›</div>}
+        aria-label="breadcrumb"
+      >
         {breadcrumbs}
       </Breadcrumbs>
     </Stack>

@@ -25,6 +25,9 @@ const Dashboard = () => {
           <ProfileActivity />
           <Campaigns />
         </div>
+        <div className="text-center w-full text-gray-400 border-t-[1px] pt-3 text-sm mt-4">
+          copyright 2024 Cheeky
+        </div>
       </div>
     </div>
   );

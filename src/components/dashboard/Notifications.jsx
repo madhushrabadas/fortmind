@@ -1,4 +1,6 @@
 import React from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { PiCopyThin } from "react-icons/pi";
 
 const notifications = [
   {
@@ -25,10 +27,14 @@ const notifications = [
 
 const DashNotifications = () => {
   return (
-    <div className="border w-[40%] rounded-lg p-4 ">
+    <div className="border w-[35%] rounded-lg p-4 ">
       <div className="top mb-7 flex items-center justify-between">
         <div className="font-semibold text-xl">Notifications</div>
-        <div className="dropdown bg-red-800">recents</div>
+        <div className="dropdown border flex gap-1 items-center text-xs p-2 rounded-lg">
+          <PiCopyThin color="blue" />
+          Recents
+          <IoMdArrowDropdown />
+        </div>
       </div>
       <div className="content  ">
         {notifications.map((notification) => (
@@ -41,7 +47,7 @@ const DashNotifications = () => {
               <div className="time text-gray-400 text-xs">
                 {notification.time}
               </div>
-              <div className="text-sm mb-4">{notification.text}</div>
+              <div className="text-[10px] mb-4">{notification.text}</div>
             </div>
           </div>
         ))}

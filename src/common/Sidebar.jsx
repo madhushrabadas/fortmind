@@ -1,93 +1,109 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import logo from "../../public/logo.svg";
+import acc from "../../public/acc.png";
+import activity from "../../public/activity.png";
+import campaigns from "../../public/campaigns.png";
+import category from "../../public/category.png";
+import chat from "../../public/chat.png";
+import discovery from "../../public/discovery.png";
+import list from "../../public/list.png";
+import logout from "../../public/logout.png";
+import star from "../../public/star.png";
+import side from "../../public/side.png";
+
+const sidebarData = [
+  { name: "Dashboard", icon: category, path: "/dashboard" },
+  {
+    name: "Listings",
+    icon: list,
+    subItems: [
+      { name: "Applied Listing", icon: list, path: "/listing/applied" },
+      { name: "Saved Listings", icon: list, path: "/listing/saved" },
+      { name: "Collaboration History", icon: list, path: "/history" },
+    ],
+  },
+  { name: "Campaigns", icon: campaigns, path: "/campaigns" },
+  { name: "Explore Brand Deals", icon: discovery, path: "/Explore" },
+  { name: "Profile Activity", icon: activity, path: "/ProfileActivity" },
+  { name: "Messages", icon: chat, path: "/Messages" },
+  { name: "Reviews", icon: star, path: "/reviews" },
+  { name: "Account Settings", icon: acc, path: "/AccountSettings" },
+  { name: "Logout", icon: logout, path: "/Logout" },
+];
 
 function Sidebar() {
   const [isListingOpen, setIsListingOpen] = useState(false);
 
+  const toggleSubItems = (index) => {
+    if (index === 1) {
+      setIsListingOpen(!isListingOpen);
+    }
+  };
+
   return (
-    <div className="bg-gray-200 text-white h-auto w-64">
-      <div className="logo">logo</div>
-      <ul className="space-y-4 p-4">
-        <li>
-          <Link to="/dashboard" className="text-gray-900 hover:text-white">
-            Dashboard
-          </Link>
-        </li>
-        <li>
-          <div
-            className="text-gray-900 hover:text-white"
-            onClick={() => setIsListingOpen(!isListingOpen)}
-          >
-            Listing
-          </div>
-          {isListingOpen && (
-            <ul className="pl-4 space-y-2">
-              <li>
+    <div className="bg-[#FAFBFB] flex justify-between flex-col w-64 border-r-[1px]">
+      <div className="top">
+        <div className="logo p-6 py-2">
+          <img src={logo} alt="logo" />
+        </div>
+        <ul className="space-y-4 py-10 px-6 h-full text-sm">
+          {sidebarData.map((item, index) => (
+            <li key={item.name}>
+              {item.subItems ? (
+                <>
+                  <div
+                    className="hover:bg-blue-600 hover:text-white p-2 rounded-xl flex items-center cursor-pointer"
+                    onClick={() => toggleSubItems(index)}
+                  >
+                    <img src={item.icon} alt={item.name} className="mr-4  " />
+                    {item.name}
+                  </div>
+                  {isListingOpen && index === 1 && (
+                    <ul className="pl-4 space-y-6">
+                      {item.subItems.map((subItem) => (
+                        <li
+                          key={subItem.name}
+                          className="mt-3 hover:bg-blue-600 hover:text-white p-2 rounded-xl"
+                        >
+                          <Link
+                            to={subItem.path}
+                            className="flex items-center text-gray-500"
+                          >
+                            <img
+                              src={subItem.icon}
+                              alt={subItem.name}
+                              className="mr-2"
+                            />
+                            {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              ) : (
                 <Link
-                  to="/listing/applied"
-                  className="text-gray-900 hover:text-white"
+                  to={item.path}
+                  className="text-gray-900 hover:bg-blue-600 hover:text-white p-2 rounded-xl flex items-center"
                 >
-                  Applied Listing
+                  <img src={item.icon} alt={item.name} className="mr-4" />
+                  {item.name}
                 </Link>
-              </li>
-              <li>
-                <Link
-                  to="/listing/saved"
-                  className="text-gray-900 hover:text-white"
-                >
-                  Saved Listings
-                </Link>
-              </li>
-              <li>
-                <Link to="/history" className="text-gray-900 hover:text-white">
-                  Collaboration History
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link to="/campaigns" className="text-gray-900 hover:text-white">
-            Campaigns
-          </Link>
-        </li>
-        <li>
-          <Link to="/Explore" className="text-gray-900 hover:text-white">
-            Explore Brand Deals
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/ProfileActivity"
-            className="text-gray-900 hover:text-white"
-          >
-            Profile Activity
-          </Link>
-        </li>
-        <li>
-          <Link to="/Messages" className="text-gray-900 hover:text-white">
-            Messages
-          </Link>
-        </li>
-        <li>
-          <Link to="/reviews" className="text-gray-900 hover:text-white">
-            reviews
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/Account Settings"
-            className="text-gray-900 hover:text-white"
-          >
-            Account Settings
-          </Link>
-        </li>
-        <li>
-          <Link to="/Logout" className="text-gray-900 hover:text-white">
-            Logout
-          </Link>
-        </li>
-      </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="btm border p-6 py-4 mb-12 bg-blue-500 text-white m-4 rounded-xl">
+        <div className="icon text-center my-3 flex items-center justify-center">
+          <img src={side} />
+        </div>
+        <div className="text-sm">Upgrade to PRO for more resources</div>
+        <button className="btn bg-white capitalize w-full rounded-lg p-2 mt-3 text-blue-600">
+          upgrade now
+        </button>
+      </div>
     </div>
   );
 }

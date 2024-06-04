@@ -16,7 +16,7 @@ const PageHeader = ({ pageName }) => {
           <NotificationsNoneOutlinedIcon />
         </div>
         <div className="profile flex gap-3 items-center">
-          <div className="img bg-rose-800 rounded-full">img</div>
+          <div className="img bg-rose-800 h-10 w-10 rounded-full">img</div>
           <div className="flex flex-col">
             <div className="name font-bold text-sm">Anette Black</div>
             <div className="name text-xs">Admin</div>
