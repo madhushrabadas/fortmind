@@ -5,6 +5,7 @@ import Layout from "./common/Layout";
 import Listing from "./pages/Listing";
 import AppliedListing from "./pages/AppliedListing";
 import SavedListing from "./pages/SavedListing";
+import ProfileViewsTable from "./pages/ProfileViewsPage";
 
 function App() {
   return (
@@ -47,6 +48,14 @@ function App() {
           element={
             <Layout>
               <SavedListing />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile/views"
+          element={
+            <Layout>
+              <ProfileViewsTable />
             </Layout>
           }
         />

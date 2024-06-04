@@ -12,6 +12,8 @@ import logout from "../../public/logout.png";
 import star from "../../public/star.png";
 import side from "../../public/side.png";
 
+import { IoMdArrowDropdown } from "react-icons/io";
+
 const sidebarData = [
   { name: "Dashboard", icon: category, path: "/dashboard" },
   {
@@ -53,28 +55,25 @@ function Sidebar() {
               {item.subItems ? (
                 <>
                   <div
-                    className="hover:bg-blue-600 hover:text-white p-2 rounded-xl flex items-center cursor-pointer"
+                    className="hover:bg-blue-600 hover:text-white p-2 rounded-xl flex justify-between items-center cursor-pointer"
                     onClick={() => toggleSubItems(index)}
                   >
-                    <img src={item.icon} alt={item.name} className="mr-4  " />
-                    {item.name}
+                    <div className="flex">
+                      {" "}
+                      <img src={item.icon} alt={item.name} className="mr-4  " />
+                      {item.name}
+                    </div>
+
+                    <IoMdArrowDropdown />
                   </div>
                   {isListingOpen && index === 1 && (
-                    <ul className="pl-4 space-y-6">
+                    <ul className="pl-8  space-y-3">
                       {item.subItems.map((subItem) => (
-                        <li
-                          key={subItem.name}
-                          className="mt-3 hover:bg-blue-600 hover:text-white p-2 rounded-xl"
-                        >
+                        <li key={subItem.name} className="mt-3 border-l-[1px] ">
                           <Link
                             to={subItem.path}
-                            className="flex items-center text-gray-500"
+                            className="flex items-center hover:bg-blue-600 hover:text-white p-2 rounded-xl"
                           >
-                            <img
-                              src={subItem.icon}
-                              alt={subItem.name}
-                              className="mr-2"
-                            />
                             {subItem.name}
                           </Link>
                         </li>
