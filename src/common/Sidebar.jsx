@@ -10,7 +10,7 @@ function Sidebar() {
       <ul className="space-y-4 p-4">
         <li>
           <Link to="/dashboard" className="text-gray-900 hover:text-white">
-            Dashboard
+            Dashboard_
           </Link>
         </li>
         <li>
