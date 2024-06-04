@@ -35,9 +35,12 @@ const cardsData = [
 const StatsCards = () => {
   return (
     <div className=" my-10 flex gap-5 items-center justify-between">
-      {cardsData.map((itm) => {
+      {cardsData.map((itm, idx) => {
         return (
-          <div className="border p-4 rounded-xl flex items-center flex-1 gap-3">
+          <div
+            key={idx}
+            className="border p-4 rounded-xl flex items-center flex-1 gap-3"
+          >
             <div className="icon border rounded-lg p-3">icon</div>
             <div className="conts   ">
               <div className="p">{itm.text}</div>

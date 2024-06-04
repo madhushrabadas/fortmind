@@ -5,7 +5,7 @@ function Sidebar() {
   const [isListingOpen, setIsListingOpen] = useState(false);
 
   return (
-    <div className="bg-gray-200 text-white h-screen w-64">
+    <div className="bg-gray-200 text-white h-auto w-64">
       <div className="logo">logo</div>
       <ul className="space-y-4 p-4">
         <li>
