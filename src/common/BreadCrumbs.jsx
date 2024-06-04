@@ -10,7 +10,7 @@ function handleClick(event) {
   console.info("You clicked a breadcrumb.");
 }
 
-export default function CustomBreadcrumbs() {
+export default function CustomBreadcrumbs({ child1, child2, child3 }) {
   const breadcrumbs = [
     <Link
       underline="hover"
@@ -19,7 +19,7 @@ export default function CustomBreadcrumbs() {
       href="/"
       onClick={handleClick}
     >
-      MUI
+      {child1}
     </Link>,
     <Link
       underline="hover"
@@ -28,15 +28,15 @@ export default function CustomBreadcrumbs() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Core
+      {child2}
     </Link>,
     <Typography key="3" color="text.primary">
-      Breadcrumb
+      {child3}
     </Typography>,
   ];
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} className="text-xs">
       <Breadcrumbs
         separator={<div className="text-2xl">›</div>}
         aria-label="breadcrumb"
