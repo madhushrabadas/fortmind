@@ -10,7 +10,7 @@ function Sidebar() {
       <ul className="space-y-4 p-4">
         <li>
           <Link to="/dashboard" className="text-gray-900 hover:text-white">
-            Dashboard_
+            Dashboard
           </Link>
         </li>
         <li>
@@ -23,13 +23,24 @@ function Sidebar() {
           {isListingOpen && (
             <ul className="pl-4 space-y-2">
               <li>
-                <Link to="/listing" className="text-gray-900 hover:text-white">
-                  Add Listing
+                <Link
+                  to="/listing/applied"
+                  className="text-gray-900 hover:text-white"
+                >
+                  Applied Listing
                 </Link>
               </li>
               <li>
-                <Link to="/listing" className="text-gray-900 hover:text-white">
-                  Manage Listings
+                <Link
+                  to="/listing/saved"
+                  className="text-gray-900 hover:text-white"
+                >
+                  Saved Listings
+                </Link>
+              </li>
+              <li>
+                <Link to="/history" className="text-gray-900 hover:text-white">
+                  Collaboration History
                 </Link>
               </li>
             </ul>

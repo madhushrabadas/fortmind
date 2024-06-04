@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Layout from "./common/Layout";
 import Listing from "./pages/Listing";
+import AppliedListing from "./pages/AppliedListing";
+import SavedListing from "./pages/SavedListing";
 
 function App() {
   return (
@@ -29,6 +31,22 @@ function App() {
           element={
             <Layout>
               <Listing />
+            </Layout>
+          }
+        />
+        <Route
+          path="/listing/applied"
+          element={
+            <Layout>
+              <AppliedListing />
+            </Layout>
+          }
+        />
+        <Route
+          path="/listing/saved"
+          element={
+            <Layout>
+              <SavedListing />
             </Layout>
           }
         />
