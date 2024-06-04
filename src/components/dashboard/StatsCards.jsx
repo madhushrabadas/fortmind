@@ -37,13 +37,13 @@ const cardsData = [
 ];
 const StatsCards = () => {
   return (
-    <div className=" mb-10 mt-8 flex gap-5 items-center justify-between">
+    <div className=" mb-10 mt-8 flex gap-1 items-center justify-between">
       {cardsData.map((itm, idx) => {
         return (
           <div key={idx}>
             <Link
               to={itm.link}
-              className="border p-4 rounded-xl flex items-center flex-1 gap-3"
+              className="border p-4 rounded-xl flex items-center flex-1 gap-4 w-full"
             >
               <div className={`icon   rounded-xl p-4 ${itm.color}`}>
                 <img
